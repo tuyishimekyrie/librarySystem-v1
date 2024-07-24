@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error:
-          "An error occurred while saving the book. Please try again later.",
+          "An error occurred while saving the category. Please try again later.",
       },
       { status: 500 }
     );
