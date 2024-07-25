@@ -8,6 +8,20 @@
       "when": 1721835073632,
       "tag": "0000_wooden_speedball",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1721887508508,
+      "tag": "0001_lazy_moon_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1721889068785,
+      "tag": "0002_orange_la_nuit",
+      "breakpoints": true
     }
   ]
 }
