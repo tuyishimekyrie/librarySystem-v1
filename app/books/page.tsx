@@ -9,7 +9,7 @@ const page = async () => {
     <div>
       <div className="flex space-x-4 m-4">
         {data.map((book) => (
-          <div key={book.id} className="border border-slate-200 p-4 rounded-md bg-white bg-opacity-10">
+          <div key={book.id} className="border border-slate-200 p-4 rounded-md bg-white bg-opacity-20">
             <h2>{book.title}</h2>
             <p>{book.author}</p>
             <p>{book.isbn}</p>
