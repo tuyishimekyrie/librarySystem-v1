@@ -1,7 +1,6 @@
+import Navbar from "@/app/components/User/Navbar";
 import { db } from "@/drizzle/db";
 import React from "react";
-import Navbar from "../components/User/Navbar";
-import Link from "next/link";
 
 const page = async () => {
   const data = await db.query.book.findMany();
@@ -12,8 +11,7 @@ const page = async () => {
       <Navbar />
       <div className="flex space-x-4 m-4">
         {data.map((book) => (
-          <Link
-            href={`/book/${book.id}`}
+          <div
             key={book.id}
             className="border border-slate-200 p-4 rounded-md bg-white bg-opacity-20"
           >
@@ -22,7 +20,7 @@ const page = async () => {
             <p>{book.isbn}</p>
             <p>{book.description}</p>
             {/* <p>{book?.categoryId}</p> */}
-          </Link>
+          </div>
         ))}
       </div>
     </div>

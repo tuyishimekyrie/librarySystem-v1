@@ -3,12 +3,12 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-      <div className='text-white flex justify-between border-b border-slate-500'>
+      <div className='text-white flex justify-between border-b border-slate-500 px-4 py-2 items-center'>
           <div>
-          <h1>Logos</h1>
+          <h1>Auca Library</h1>
           <ul></ul>
           </div>
-          <Link href="api/auth/signout">Logout</Link>
+          <Link href="api/auth/signout" className="bg-red-600 px-4 py-2 rounded-md hover:cursor-pointer hover:bg-red-800">Logout</Link>
     </div>
   )
 }
