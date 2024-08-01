@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Navbar = () => {
@@ -7,7 +8,7 @@ const Navbar = () => {
           <h1>Logos</h1>
           <ul></ul>
           </div>
-          <button>Logout</button>
+          <Link href="api/auth/signout">Logout</Link>
     </div>
   )
 }
