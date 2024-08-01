@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import { db } from "@/drizzle/db";
-import { users } from "@/drizzle/db/schema";
+import { users, roles, userRoles } from "@/drizzle/db/schema"; // Assuming you have userRoles table defined
 import { hash } from "bcryptjs";
 import { eq } from "drizzle-orm";
+import crypto from "crypto";
 
 export async function POST(request: Request) {
   try {
@@ -34,16 +35,41 @@ export async function POST(request: Request) {
     // Hash the password
     const hashedPassword = await hash(password, 10);
 
+    // Generate a UUID for the new user
+    const userId = crypto.randomUUID();
+
     // Insert the new user
     await db.insert(users).values({
+      id: userId,
       name,
       email,
       password: hashedPassword,
-      id: crypto.randomUUID(), // Generate a UUID for the new user
+    });
+
+    // Fetch the student role ID
+    const rolesResult = await db
+      .select()
+      .from(roles)
+      .where(eq(roles.name, "student"))
+      .limit(1);
+
+    const studentRole = rolesResult[0];
+
+    if (!studentRole) {
+      return NextResponse.json(
+        { error: "Default role 'student' does not exist." },
+        { status: 500 }
+      );
+    }
+
+    // Insert the default role for the new user
+    await db.insert(userRoles).values({
+      userId: userId,
+      roleId: studentRole.id,
     });
 
     return NextResponse.json(
-      { message: "User registered successfully." },
+      { message: "User registered successfully with default role." },
       { status: 201 }
     );
   } catch (error) {
