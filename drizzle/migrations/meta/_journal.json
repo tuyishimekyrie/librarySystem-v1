@@ -15,6 +15,13 @@
       "when": 1722499141810,
       "tag": "0001_harsh_reptil",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1722514174274,
+      "tag": "0002_cool_valeria_richards",
+      "breakpoints": true
     }
   ]
 }
