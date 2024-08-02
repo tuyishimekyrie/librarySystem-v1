@@ -1,4 +1,4 @@
-import { pgTable, serial, uuid, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, uuid, varchar } from "drizzle-orm/pg-core";
 import { categorycateTable } from "./Category";
 
 export const book = pgTable("book", {
@@ -7,6 +7,7 @@ export const book = pgTable("book", {
   author: varchar("author", { length: 256 }),
   isbn: varchar("isbn", { length: 256 }),
   description: varchar("description", { length: 256 }),
+  cover: text("cover"),
     categoryId: uuid("categoryId")  
     .references(() => categorycateTable.id),  
 });

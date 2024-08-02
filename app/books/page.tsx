@@ -2,6 +2,7 @@ import { db } from "@/drizzle/db";
 import React from "react";
 import Navbar from "../components/User/Navbar";
 import Link from "next/link";
+import UploadImage from "./UploadImage";
 
 const page = async () => {
   const data = await db.query.book.findMany();
@@ -25,6 +26,8 @@ const page = async () => {
           </Link>
         ))}
       </div>
+      {/* <UploadImage /> */}
+      
     </div>
   );
 };
