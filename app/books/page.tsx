@@ -17,14 +17,15 @@ const page = async () => {
           <Link
             href={`/books/${book.id}`}
             key={book.id}
-            className="border border-slate-200  rounded-md  bg-opacity-20"
+            className="border border-slate-200  rounded-md  bg-opacity-20 "
           >
             {book?.cover ?
           <Image
                     src={book?.cover}
                     alt="Uploaded image"
                     width={260}  
-                    height={100} 
+                height={100}
+                className="max-h-40 object-cover"
                 /> : <Image
                     src={`https://res.cloudinary.com/dvr0mdz82/image/upload/v1712323013/htrxg6wcbwyruo8p5pvx.jpg`}
                     alt="Uploaded image"

@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Destructure body for clarity
-  const { title, author, isbn, description, categoryId } = body;
+  const { title, author, isbn, description, categoryId,cover } = body;
 
   // Insert data into the database
   try {
@@ -36,6 +36,7 @@ export async function POST(request: NextRequest) {
       isbn,
       description,
       categoryId,
+      cover
     }).returning();
 
     return NextResponse.json(newBook, { status: 201 }); // Use 201 Created for successful creation
