@@ -13,7 +13,7 @@ const page = async () => {
       <div className="flex space-x-4 m-4">
         {data.map((book) => (
           <Link
-            href={`/book/${book.id}`}
+            href={`/books/${book.id}`}
             key={book.id}
             className="border border-slate-200 p-4 rounded-md bg-white bg-opacity-20"
           >

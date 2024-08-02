@@ -1,30 +1,50 @@
-import Navbar from "@/app/components/User/Navbar";
-import { db } from "@/drizzle/db";
+// app/books/[id]/page.tsx
 import React from "react";
+import BookDetail from "../BookDetail";
+import { fetchBookById } from "@/app/services/bookService";
+import Link from "next/link"
+interface Book {
+  id: number;
+  title: string | null;
+  author: string | null;
+  isbn: string | null;
+  description: string | null;
+  categoryId: string | null; // Add other fields as necessary
+}
 
-const page = async () => {
-  const data = await db.query.book.findMany();
-  console.log("Books Data", data);
+interface BookDetailPageProps {
+  params: { id: string };
+}
 
-  return (
-    <div>
-      <Navbar />
-      <div className="flex space-x-4 m-4">
+const BookDetailPage: React.FC<BookDetailPageProps> = async ({ params }) => {
+  const bookid = Number(params.id);
+
+  if (isNaN(bookid)) {
+    return <div>Invalid book ID provided.</div>;
+  }
+
+  try {
+    const data: Book[] = await fetchBookById(bookid);
+
+    if (data.length === 0) {
+      return <div>No book found with the provided ID</div>;
+    }
+
+    return (
+        <div className="flex space-x-4 m-4 flex-col">
+            <div><Link href="/books">Back</Link></div>
+            <div className="space-x-4 m-4">
+
         {data.map((book) => (
-          <div
-            key={book.id}
-            className="border border-slate-200 p-4 rounded-md bg-white bg-opacity-20"
-          >
-            <h2>{book.title}</h2>
-            <p>{book.author}</p>
-            <p>{book.isbn}</p>
-            <p>{book.description}</p>
-            {/* <p>{book?.categoryId}</p> */}
-          </div>
+            <BookDetail key={book.id} book={book} />
         ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Error fetching book data:", error);
+    return <div>Failed to load book details. Please try again later.</div>;
+  }
 };
 
-export default page;
+export default BookDetailPage;
