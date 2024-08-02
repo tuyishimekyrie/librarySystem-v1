@@ -17,7 +17,7 @@ const page = async () => {
           <Link
             href={`/books/${book.id}`}
             key={book.id}
-            className="border border-slate-200  rounded-md  bg-opacity-20 "
+            className="border border-slate-200  rounded-md  bg-opacity-20 max-w-80 max-h-96 "
           >
             {book?.cover ?
           <Image
@@ -33,12 +33,12 @@ const page = async () => {
                 height={100} 
                   className="max-h-44 object-cover"
               />}
-            <div className="p-4">
+            <div className="p-4 py-8">
 
             <h2>{book.title}</h2>
             <p className="text-sm text-gray-300">{book.author}</p>
-            <p className="text-sm text-gray-300">{book.isbn}</p>
-            <p className="text-sm text-gray-300">{book.description}</p>
+            {/* <p className="text-sm text-gray-300">{book.isbn}</p> */}
+            {/* <p className="text-sm text-gray-300">{book.description}</p> */}
             {/* <p>{book?.categoryId}</p> */}
             </div>
           </Link>
