@@ -3,13 +3,15 @@ import React from "react";
 import BookDetail from "../BookDetail";
 import { fetchBookById } from "@/app/services/bookService";
 import Link from "next/link"
+import Navbar from "@/app/components/User/Navbar";
 interface Book {
   id: number;
   title: string | null;
   author: string | null;
   isbn: string | null;
   description: string | null;
-  categoryId: string | null; // Add other fields as necessary
+  cover: string | null;
+  categoryId: string | null; 
 }
 
 interface BookDetailPageProps {
@@ -31,8 +33,8 @@ const BookDetailPage: React.FC<BookDetailPageProps> = async ({ params }) => {
     }
 
     return (
-        <div className="flex space-x-4 m-4 flex-col">
-            <div><Link href="/books">Back</Link></div>
+        <div className="flex flex-col">
+            <div><Navbar/></div>
             <div className="space-x-4 m-4">
 
         {data.map((book) => (

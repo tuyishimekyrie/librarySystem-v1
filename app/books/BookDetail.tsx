@@ -1,4 +1,5 @@
 // components/BookDetail.tsx
+import Image from "next/image";
 import React from "react";
 
 interface Book {
@@ -7,7 +8,8 @@ interface Book {
   author: string | null;
   isbn: string | null;
   description: string | null;
-  categoryId: string | null; // Add other fields as necessary
+  cover: string | null;
+  categoryId: string | null; 
 }
 
 interface BookDetailProps {
@@ -15,8 +17,22 @@ interface BookDetailProps {
 }
 
 const BookDetail: React.FC<BookDetailProps> = ({ book }) => (
-  <div className="border border-slate-200 p-4 rounded-md bg-white bg-opacity-20">
-    <h2>{book.title || "No title available"}</h2>
+  <div className="">
+   {book.cover ?
+          <Image
+                    src={book?.cover}
+                    alt="Uploaded image"
+                    width={260}  
+                height={100}
+                className="w-full max-h-80 object-cover"
+                /> : <Image
+                    src={`https://res.cloudinary.com/dvr0mdz82/image/upload/v1712323013/htrxg6wcbwyruo8p5pvx.jpg`}
+                    alt="Uploaded image"
+                    width={260} 
+                height={100} 
+                className="w-full max-h-80 object-cover"
+              />}
+    <h2 className="mt-8">{book.title || "No title available"}</h2>
     <p>{book.author || "No author available"}</p>
     <p>{book.isbn || "No ISBN available"}</p>
     <p>{book.description || "No description available"}</p>

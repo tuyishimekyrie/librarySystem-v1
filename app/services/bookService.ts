@@ -9,7 +9,8 @@ interface Book {
   author: string | null;
   isbn: string | null;
   description: string | null;
-  categoryId: string | null; // Add other fields as necessary
+  cover: string | null;
+  categoryId: string | null; 
 }
 
 export const fetchBookById = async (bookid: number): Promise<Book[]> => {

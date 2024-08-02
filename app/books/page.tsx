@@ -12,7 +12,7 @@ const page = async () => {
   return (
     <div>
       <Navbar />
-      <div className="flex space-4 m-4 flex-wrap gap-4">
+      <div className="flex space-8 m-4 flex-wrap gap-8">
         {data.map((book) => (
           <Link
             href={`/books/${book.id}`}
@@ -25,12 +25,13 @@ const page = async () => {
                     alt="Uploaded image"
                     width={260}  
                 height={100}
-                className="max-h-40 object-cover"
+                className="max-h-44 object-cover"
                 /> : <Image
                     src={`https://res.cloudinary.com/dvr0mdz82/image/upload/v1712323013/htrxg6wcbwyruo8p5pvx.jpg`}
                     alt="Uploaded image"
                     width={260} 
-                    height={100} 
+                height={100} 
+                  className="max-h-44 object-cover"
               />}
             <div className="p-4">
 
