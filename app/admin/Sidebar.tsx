@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaHome, FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
-
+import { PiBooksFill } from "react-icons/pi";
 const Sidebar = () => {
   const router = useRouter();
   const currentPath = usePathname();
@@ -29,11 +29,11 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
-          <li className={currentPath === '/admin/settings' ? 'bg-gray-700' : ''}>
-            <Link href="/admin/settings">
+          <li className={currentPath === '/admin/books' ? 'bg-gray-700' : ''}>
+            <Link href="/admin/books">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
-                <FaCog className="mr-3" />
-                Settings
+                <PiBooksFill className="mr-3" />
+                Books
               </span>
             </Link>
           </li>
