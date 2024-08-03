@@ -36,6 +36,14 @@ const Sidebar = () => {
                 Books
               </span>
             </Link>
+                  </li>
+                   <li className={currentPath === '/admin/category' ? 'bg-gray-700' : ''}>
+            <Link href="/admin/category">
+              <span className="flex items-center py-2 px-4 hover:bg-gray-700">
+                <PiBooksFill className="mr-3" />
+                Category
+              </span>
+            </Link>
           </li>
           <li>
             <span onClick={() => router.push("/api/auth/signout")}  className="flex items-center py-2 px-4 hover:bg-gray-700 hover:cursor-pointer">
