@@ -38,7 +38,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <span onClick={() => router.push("/api/auth/signout")}  className="flex items-center py-2 px-4 hover:bg-gray-700">
+            <span onClick={() => router.push("/api/auth/signout")}  className="flex items-center py-2 px-4 hover:bg-gray-700 hover:cursor-pointer">
               <FaSignOutAlt className="mr-3" />
               Logout
             </span>

@@ -2,7 +2,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className='text-black'>  <h1 className="text-2xl font-bold">Dashboard</h1>
+      <p>Welcome to the librarian dashboard!</p></div>
   )
 }
 
