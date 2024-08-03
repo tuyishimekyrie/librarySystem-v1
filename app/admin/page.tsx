@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
+import Cards from "./Cards";
 
 const page = () => {
   return (
-    <div className='text-black'>  <h1 className="text-2xl font-bold">Dashboard</h1>
-      <p>Welcome to the admin dashboard!</p></div>
-  )
-}
+    <div className="text-black p-4">
+      <h1 className="text-2xl font-bold p-4">Dashboard</h1>
+      <Cards />
+    </div>
+  );
+};
 
-export default page
+export default page;
