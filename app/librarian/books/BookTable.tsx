@@ -26,19 +26,19 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
           <th className="w-1/6 py-2">ISBN</th>
           <th className="w-1/6 py-2">Description</th>
           <th className="w-1/6 py-2">Cover</th>
-          <th className="w-1/6 py-2">Category</th>
+          {/* <th className="w-1/6 py-2">Category</th> */}
         </tr>
       </thead>
       <tbody>
         {books.map((book) => (
-          <tr key={book.id} className="text-center">
+          <tr key={book.id} className="text-center text-black">
             <td className="py-2">{book.id}</td>
             <td className="py-2">{book.title || 'No title'}</td>
             <td className="py-2">{book.author || 'No author'}</td>
             <td className="py-2">{book.isbn || 'No ISBN'}</td>
             <td className="py-2">{book.description || 'No description'}</td>
-            <td className="py-2">{book.cover ? <Image src={book.cover} alt="cover" width={50} height={50}/> : 'No cover'}</td>
-            <td className="py-2">{book.categoryId || 'No category'}</td>
+            <td className="py-2">{book.cover ? <Image src={book.cover} alt="cover" width={40} height={50}/> : 'No cover'}</td>
+            {/* <td className="py-2">{book.categoryId || 'No category'}</td> */}
           </tr>
         ))}
       </tbody>

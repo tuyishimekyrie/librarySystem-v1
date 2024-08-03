@@ -18,8 +18,8 @@ const BooksPage = async () => {
     console.log("books", books)
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Books</h1>
+    <div className="p-4 ">
+      <h1 className="text-2xl font-bold mb-4 text-black">Books</h1>
       <BookTable books={books} />
     </div>
   );

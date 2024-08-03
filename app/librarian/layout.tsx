@@ -9,7 +9,7 @@ export default function DashboardLayout({
     <section>
           <div className="max-h-screen flex overflow-hidden">
               <Sidebar/>
-      <main className="flex-1  bg-gray-100">
+      <main className="flex-1  bg-gray-100 overflow-y-scroll">
         {children}
       </main>
     </div>
