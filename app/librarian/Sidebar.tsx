@@ -13,7 +13,7 @@ const Sidebar = () => {
       <div className="p-4 font-bold text-lg">Librarian Dashboard</div>
       <nav className="mt-4">
         <ul>
-          <li className={currentPath === '/admin' ? 'bg-gray-700' : ''}>
+          <li className={currentPath === '/librarian' ? 'bg-gray-700' : ''}>
             <Link href="/admin">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaHome className="mr-3" />
@@ -21,7 +21,7 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
-          <li className={currentPath === '/admin/users' ? 'bg-gray-700' : ''}>
+          <li className={currentPath === '/librarian/users' ? 'bg-gray-700' : ''}>
             <Link href="/admin/users">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaUser className="mr-3" />

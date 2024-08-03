@@ -13,8 +13,6 @@ export default function DashboardLayout({
         {children}
       </main>
     </div>
- 
-      {children}
     </section>
   )
 }
