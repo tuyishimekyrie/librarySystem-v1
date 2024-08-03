@@ -14,7 +14,7 @@ const Sidebar = () => {
       <nav className="mt-4">
         <ul>
           <li className={currentPath === '/librarian' ? 'bg-gray-700' : ''}>
-            <Link href="/admin">
+            <Link href="/librarian">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaHome className="mr-3" />
                 Dashboard
@@ -22,15 +22,15 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className={currentPath === '/librarian/users' ? 'bg-gray-700' : ''}>
-            <Link href="/admin/users">
+            <Link href="/librarian/users">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaUser className="mr-3" />
                 Users
               </span>
             </Link>
           </li>
-          <li className={currentPath === '/admin/books' ? 'bg-gray-700' : ''}>
-            <Link href="/admin/books">
+          <li className={currentPath === '/librarian/books' ? 'bg-gray-700' : ''}>
+            <Link href="/librarian/books">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <PiBooksFill className="mr-3" />
                 Books

@@ -15,7 +15,6 @@ const fetchBooks = async () => {
 
 const BooksPage = async () => {
     const books = await fetchBooks();
-    console.log("books", books)
 
   return (
     <div className="p-4 ">
