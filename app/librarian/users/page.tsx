@@ -3,7 +3,7 @@ import { db } from '@/drizzle/db';
 import {  users } from '@/drizzle/db/schema';
 import UserTable from "./UserTable"
 
-export const fetchUsers = async () => {
+const fetchUsers = async () => {
   try {
     const user = await db.select().from(users);
     return user;

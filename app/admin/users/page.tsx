@@ -1,7 +1,17 @@
 import React from 'react'
 import UserTable from "@/app/librarian/users/UserTable"
-import { fetchUsers } from '@/app/librarian/users/page'
+import { db } from '@/drizzle/db';
+import { users } from '@/drizzle/db/schema';
 
+const fetchUsers = async () => {
+  try {
+    const user = await db.select().from(users);
+    return user;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return [];
+  }
+};
 const page = async () => {
     const users = await fetchUsers();
   return (
