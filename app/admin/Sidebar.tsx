@@ -68,12 +68,26 @@ const Sidebar = () => {
             </Link>
           </li>
           <li
-            className={currentPath === "/admin/category/add" ? "bg-gray-700" : ""}
+            className={
+              currentPath === "/admin/category/add" ? "bg-gray-700" : ""
+            }
           >
             <Link href="/admin/category/add">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <IoIosAddCircleOutline className="mr-3" />
                 Add Category
+              </span>
+            </Link>
+          </li>
+          <li
+            className={
+              currentPath === "/admin/role/add" ? "bg-gray-700" : ""
+            }
+          >
+            <Link href="/admin/role/add">
+              <span className="flex items-center py-2 px-4 hover:bg-gray-700">
+                <IoIosAddCircleOutline className="mr-3" />
+                Add Role
               </span>
             </Link>
           </li>
