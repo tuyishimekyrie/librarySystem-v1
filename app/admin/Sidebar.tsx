@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaHome, FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { PiBooksFill } from "react-icons/pi";
+import { IoIosAddCircleOutline } from "react-icons/io";
+
 const Sidebar = () => {
   const router = useRouter();
   const currentPath = usePathname();
@@ -13,7 +15,7 @@ const Sidebar = () => {
       <div className="p-4 font-bold text-lg">Admin Dashboard</div>
       <nav className="mt-4">
         <ul>
-          <li className={currentPath === '/admin' ? 'bg-gray-700' : ''}>
+          <li className={currentPath === "/admin" ? "bg-gray-700" : ""}>
             <Link href="/admin">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaHome className="mr-3" />
@@ -21,7 +23,7 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
-          <li className={currentPath === '/admin/users' ? 'bg-gray-700' : ''}>
+          <li className={currentPath === "/admin/users" ? "bg-gray-700" : ""}>
             <Link href="/admin/users">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaUser className="mr-3" />
@@ -29,23 +31,25 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
-          <li className={currentPath === '/admin/books' ? 'bg-gray-700' : ''}>
+          <li className={currentPath === "/admin/books" ? "bg-gray-700" : ""}>
             <Link href="/admin/books">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <PiBooksFill className="mr-3" />
                 Books
               </span>
             </Link>
-                  </li>
-                   <li className={currentPath === '/admin/category' ? 'bg-gray-700' : ''}>
+          </li>
+          <li
+            className={currentPath === "/admin/category" ? "bg-gray-700" : ""}
+          >
             <Link href="/admin/category">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <PiBooksFill className="mr-3" />
                 Category
               </span>
             </Link>
-                  </li>
-                   <li className={currentPath === '/admin/role' ? 'bg-gray-700' : ''}>
+          </li>
+          <li className={currentPath === "/admin/role" ? "bg-gray-700" : ""}>
             <Link href="/admin/role">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <PiBooksFill className="mr-3" />
@@ -53,8 +57,21 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
+          <li
+            className={currentPath === "/admin/books/add" ? "bg-gray-700" : ""}
+          >
+            <Link href="/admin/books/add">
+              <span className="flex items-center py-2 px-4 hover:bg-gray-700">
+                <IoIosAddCircleOutline className="mr-3" />
+                Add Book
+              </span>
+            </Link>
+          </li>
           <li>
-            <span onClick={() => router.push("/api/auth/signout")}  className="flex items-center py-2 px-4 hover:bg-gray-700 hover:cursor-pointer">
+            <span
+              onClick={() => router.push("/api/auth/signout")}
+              className="flex items-center py-2 px-4 hover:bg-gray-700 hover:cursor-pointer"
+            >
               <FaSignOutAlt className="mr-3" />
               Logout
             </span>
