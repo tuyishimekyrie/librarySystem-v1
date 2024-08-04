@@ -13,7 +13,7 @@ const Sidebar = () => {
       <div className="p-4 font-bold text-lg">Librarian Dashboard</div>
       <nav className="mt-4">
         <ul>
-          <li className={currentPath === '/librarian' ? 'bg-gray-700' : ''}>
+          <li className={currentPath === "/librarian" ? "bg-gray-700" : ""}>
             <Link href="/librarian">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaHome className="mr-3" />
@@ -21,7 +21,9 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
-          <li className={currentPath === '/librarian/users' ? 'bg-gray-700' : ''}>
+          <li
+            className={currentPath === "/librarian/users" ? "bg-gray-700" : ""}
+          >
             <Link href="/librarian/users">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <FaUser className="mr-3" />
@@ -29,7 +31,9 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
-          <li className={currentPath === '/librarian/books' ? 'bg-gray-700' : ''}>
+          <li
+            className={currentPath === "/librarian/books" ? "bg-gray-700" : ""}
+          >
             <Link href="/librarian/books">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <PiBooksFill className="mr-3" />
@@ -37,8 +41,21 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
+          <li
+            className={currentPath === "/librarian/category" ? "bg-gray-700" : ""}
+          >
+            <Link href="/librarian/category">
+              <span className="flex items-center py-2 px-4 hover:bg-gray-700">
+                <PiBooksFill className="mr-3" />
+                Category
+              </span>
+            </Link>
+          </li>
           <li>
-            <span onClick={() => router.push("/api/auth/signout")}  className="flex items-center py-2 px-4 hover:bg-gray-700 hover:cursor-pointer">
+            <span
+              onClick={() => router.push("/api/auth/signout")}
+              className="flex items-center py-2 px-4 hover:bg-gray-700 hover:cursor-pointer"
+            >
               <FaSignOutAlt className="mr-3" />
               Logout
             </span>
