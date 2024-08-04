@@ -67,6 +67,18 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
+          <li
+            className={
+              currentPath === "/librarian/books/add" ? "bg-gray-700" : ""
+            }
+          >
+            <Link href="/librarian/books/add">
+              <span className="flex items-center py-2 px-4 hover:bg-gray-700">
+                <IoIosAddCircleOutline className="mr-3" />
+                Add Book
+              </span>
+            </Link>
+          </li>
           <li>
             <span
               onClick={() => router.push("/api/auth/signout")}
