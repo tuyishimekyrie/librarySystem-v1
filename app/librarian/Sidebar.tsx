@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaHome, FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { PiBooksFill } from "react-icons/pi";
+import { IoIosAddCircleOutline } from "react-icons/io";
+
 const Sidebar = () => {
   const router = useRouter();
   const currentPath = usePathname();
@@ -42,12 +44,26 @@ const Sidebar = () => {
             </Link>
           </li>
           <li
-            className={currentPath === "/librarian/category" ? "bg-gray-700" : ""}
+            className={
+              currentPath === "/librarian/category" ? "bg-gray-700" : ""
+            }
           >
             <Link href="/librarian/category">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
                 <PiBooksFill className="mr-3" />
                 Category
+              </span>
+            </Link>
+          </li>
+          <li
+            className={
+              currentPath === "/librarian/category/add" ? "bg-gray-700" : ""
+            }
+          >
+            <Link href="/librarian/category/add">
+              <span className="flex items-center py-2 px-4 hover:bg-gray-700">
+                <IoIosAddCircleOutline className="mr-3" />
+                Add Category
               </span>
             </Link>
           </li>
