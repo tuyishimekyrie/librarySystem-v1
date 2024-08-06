@@ -8,6 +8,5 @@ export const book = pgTable("book", {
   isbn: varchar("isbn", { length: 256 }),
   description: varchar("description", { length: 256 }),
   cover: text("cover"),
-    categoryId: uuid("categoryId")  
-    .references(() => categorycateTable.id),  
+  categoryId: uuid("categoryId").references(() => categorycateTable.id),
 });
