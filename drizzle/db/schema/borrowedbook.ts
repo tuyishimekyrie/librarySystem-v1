@@ -9,7 +9,7 @@ export const borrowedbook = pgTable("borrowedbook", {
     .references(() => users.id, { onDelete: "cascade" }),
   borrowedDate: timestamp("borrowedDate").notNull().defaultNow(),
   dueDate: timestamp("dueDate").notNull(),
-  bookId: uuid("bookId")
+  bookId: text("bookId")
     .notNull()
     .references(() => book.id),
 });
