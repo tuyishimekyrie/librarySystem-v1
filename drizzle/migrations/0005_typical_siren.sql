@@ -1,1 +1,0 @@
-ALTER TABLE "borrowedbook" ALTER COLUMN "bookId" SET DATA TYPE text;

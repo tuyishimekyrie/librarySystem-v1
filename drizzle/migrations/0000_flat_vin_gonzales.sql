@@ -32,7 +32,17 @@ CREATE TABLE IF NOT EXISTS "book" (
 	"author" varchar(256),
 	"isbn" varchar(256),
 	"description" varchar(256),
-	"categoryId" uuid
+	"cover" text,
+	"categoryId" uuid,
+	"status" boolean DEFAULT false
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "borrowedbook" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"userId" text NOT NULL,
+	"borrowedDate" timestamp DEFAULT now() NOT NULL,
+	"dueDate" timestamp NOT NULL,
+	"bookId" serial NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "category" (
@@ -45,7 +55,8 @@ CREATE TABLE IF NOT EXISTS "user" (
 	"name" text,
 	"email" text NOT NULL,
 	"emailVerified" timestamp,
-	"image" text
+	"image" text,
+	"password" text
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "session" (
@@ -59,6 +70,16 @@ CREATE TABLE IF NOT EXISTS "verificationToken" (
 	"token" text NOT NULL,
 	"expires" timestamp NOT NULL,
 	CONSTRAINT "verificationToken_identifier_token_pk" PRIMARY KEY("identifier","token")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "role" (
+	"id" text PRIMARY KEY NOT NULL,
+	"name" text NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "user_role" (
+	"userId" text,
+	"roleId" text
 );
 --> statement-breakpoint
 DO $$ BEGIN
@@ -80,7 +101,33 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
+ ALTER TABLE "borrowedbook" ADD CONSTRAINT "borrowedbook_userId_user_id_fk" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "borrowedbook" ADD CONSTRAINT "borrowedbook_bookId_book_id_fk" FOREIGN KEY ("bookId") REFERENCES "public"."book"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  ALTER TABLE "session" ADD CONSTRAINT "session_userId_user_id_fk" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "user_role" ADD CONSTRAINT "user_role_userId_user_id_fk" FOREIGN KEY ("userId") REFERENCES "public"."user"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "user_role" ADD CONSTRAINT "user_role_roleId_role_id_fk" FOREIGN KEY ("roleId") REFERENCES "public"."role"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS "unique_name" ON "role" USING btree ("name");

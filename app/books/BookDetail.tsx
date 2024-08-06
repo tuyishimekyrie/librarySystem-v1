@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import BorrowBook from "./[id]/BorrowBook";
 
 interface Book {
@@ -11,6 +11,7 @@ interface Book {
   description: string | null;
   cover: string | null;
   categoryId: string | null;
+  status?: boolean;
 }
 
 interface BookDetailProps {
@@ -19,11 +20,28 @@ interface BookDetailProps {
 
 const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
   const [isModal, setModal] = useState<boolean>(false);
-  console.log("isModal", isModal);
+  const modalRef = useRef<HTMLDivElement>(null);
+
   const handleModal = () => {
     setModal(!isModal);
-    console.log("isModal",isModal)
-  }
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      setModal(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add event listener to handle clicks outside the modal
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+console.log(book)
   return (
     <div className="">
       {book.cover ? (
@@ -47,11 +65,27 @@ const BookDetail: React.FC<BookDetailProps> = ({ book }) => {
       <p>{book.author || "No author available"}</p>
       <p>{book.isbn || "No ISBN available"}</p>
       <p>{book.description || "No description available"}</p>
-      {isModal && <BorrowBook/>}
-      <button className="bg-blue-600 my-4 rounded-md px-4 py-2 hover:bg-blue-900" onClick={handleModal}>
-        Borrow Book
-      </button>
+      {isModal && (
+        <div
+          ref={modalRef}
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div className="bg-white p-4">
+            <BorrowBook />
+          </div>
+        </div>
+      )}
+      {!book.status && (
+        <button
+          disabled={book.status}
+          className="bg-blue-600 my-4 rounded-md px-4 py-2 hover:bg-blue-900"
+          onClick={handleModal}
+        >
+          Borrow Book
+        </button>
+      )}
     </div>
   );
 };
+
 export default BookDetail;

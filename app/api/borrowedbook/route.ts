@@ -1,6 +1,8 @@
 import { borrowedDateSchema } from "@/app/validations/BorrowedBook";
 import { db } from "@/drizzle/db";
+import { book } from "@/drizzle/db/schema";
 import { borrowedbook } from "@/drizzle/db/schema/borrowedbook";
+import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -46,7 +48,11 @@ export async function POST(request: NextRequest) {
         bookId,
         dueDate: dueDateObject,
       })
-      .returning();
+          .returning();
+      
+      await db.update(book)
+        .set({ status: true })
+        .where(eq(book.id, bookId));
 
     return NextResponse.json(newBorrowedBook, { status: 201 }); // Use 201 Created for successful creation
   } catch (error) {

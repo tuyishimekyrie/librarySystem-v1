@@ -5,43 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1722496629637,
-      "tag": "0000_unique_titania",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1722499141810,
-      "tag": "0001_harsh_reptil",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1722514174274,
-      "tag": "0002_cool_valeria_richards",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1722594704813,
-      "tag": "0003_windy_pet_avengers",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1722927782468,
-      "tag": "0004_cloudy_stardust",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1722930982782,
-      "tag": "0005_typical_siren",
+      "when": 1722953111811,
+      "tag": "0000_flat_vin_gonzales",
       "breakpoints": true
     }
   ]
