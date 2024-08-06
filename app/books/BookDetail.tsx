@@ -1,4 +1,3 @@
-// components/BookDetail.tsx
 import Image from "next/image";
 import React from "react";
 
@@ -36,7 +35,7 @@ const BookDetail: React.FC<BookDetailProps> = ({ book }) => (
     <p>{book.author || "No author available"}</p>
     <p>{book.isbn || "No ISBN available"}</p>
     <p>{book.description || "No description available"}</p>
-    {/* Add other fields as necessary */}
+    <button className="bg-blue-600 my-4 rounded-md px-4 py-2 hover:bg-blue-900">Borrow Book</button>
   </div>
 );
 
