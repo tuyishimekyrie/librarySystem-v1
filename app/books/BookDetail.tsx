@@ -75,7 +75,7 @@ console.log(book)
           </div>
         </div>
       )}
-      {!book.status && (
+      {!book.status ? (
         <button
           disabled={book.status}
           className="bg-blue-600 my-4 rounded-md px-4 py-2 hover:bg-blue-900"
@@ -83,7 +83,7 @@ console.log(book)
         >
           Borrow Book
         </button>
-      )}
+      ): <h1 className="text-red-500">Book is currently borrowed</h1>}
     </div>
   );
 };
