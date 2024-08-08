@@ -22,6 +22,12 @@ const Navbar = () => {
           >
             Borrowed Books
           </span>
+          <span
+            onClick={() => router.push("/comments")}
+            className="pl-8 hover:text-blue-400 hover:cursor-pointer"
+          >
+            Comments
+          </span>
         </ul>
       </div>
       <Link

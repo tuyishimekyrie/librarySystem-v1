@@ -1,4 +1,4 @@
-import { categorySchema, commentSchema } from "@/app/validations";
+import {  commentSchema } from "@/app/validations";
 import { db } from "@/drizzle/db";
 import { NextRequest, NextResponse } from "next/server";
 import {comment as commentTable} from "@/drizzle/db/schema"
