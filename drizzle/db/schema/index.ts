@@ -6,3 +6,4 @@ export * from "./session";
 export * from "./verificationToken";
 export * from "./authenticator"
 export * from "./roles"
+export * from "./comment"
