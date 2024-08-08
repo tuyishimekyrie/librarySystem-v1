@@ -57,6 +57,14 @@ const Sidebar = () => {
               </span>
             </Link>
           </li>
+          <li className={currentPath === "/admin/comments" ? "bg-gray-700" : ""}>
+            <Link href="/admin/comments">
+              <span className="flex items-center py-2 px-4 hover:bg-gray-700">
+                <PiBooksFill className="mr-3" />
+                Comments
+              </span>
+            </Link>
+          </li>
           <li
             className={currentPath === "/admin/books/add" ? "bg-gray-700" : ""}
           >
@@ -80,9 +88,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li
-            className={
-              currentPath === "/admin/role/add" ? "bg-gray-700" : ""
-            }
+            className={currentPath === "/admin/role/add" ? "bg-gray-700" : ""}
           >
             <Link href="/admin/role/add">
               <span className="flex items-center py-2 px-4 hover:bg-gray-700">
