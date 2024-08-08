@@ -3,12 +3,9 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { db } from "@/drizzle/db";
-import { book, users } from "@/drizzle/db/schema";
 import toast, { Toaster } from "react-hot-toast";
 import { useSession } from "next-auth/react";
-import { usePathname } from "next/navigation";
-import { eq } from "drizzle-orm";
+import { usePathname, useRouter } from "next/navigation";
 import sessionEmail from "@/app/hooks/useSessionEmail";
 
 interface FormData {
@@ -21,8 +18,11 @@ const BorrowBook = () => {
   const [userId, setUserId] = useState<string | null>(null);
   const pathName = usePathname();
   const segments = pathName.split("/");
-  const number = segments[segments.length - 1]; // This will give you '5'
+  const number = segments[segments.length - 1]; 
+  const router = useRouter();
+
   console.log(number);
+  
   useEffect(() => {
     async function fetchUserData() {
       if (status === "authenticated" && session.user?.email) {
@@ -62,7 +62,9 @@ const BorrowBook = () => {
       const result = await response.json();
       console.log("Success:", result);
       toast.success("Book Saved Successfully");
-      reset(); // Reset the form fields
+      reset(); 
+      router.push("/")
+      
     } catch (error) {
       toast.error("Book Failed to be saved, Try again");
       console.error("Error:", error);
@@ -70,8 +72,8 @@ const BorrowBook = () => {
   };
 
   return (
-    <div className="">
-      <div className="h-screen absolute  w-full bg-black bg-opacity-75 top-0 ">
+    <div className="h-full w-screen p-4 rounded-md">
+      <div className=" absolute  w-full bg-black bg-opacity-75 top-0 ">
         <div className="h-screen justify-center   flex flex-col items-center text-white">
           <div className="bg-white">
             <h1 className="text-black text-center">Fill the form</h1>
