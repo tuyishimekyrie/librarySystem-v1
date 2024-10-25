@@ -48,6 +48,7 @@ const handler = NextAuth({
           .limit(1);
 
         const user = usersResult[0];
+        console.log("user",user);
 
         if (
           user &&
